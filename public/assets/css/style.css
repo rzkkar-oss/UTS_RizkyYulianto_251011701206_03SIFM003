@@ -1,0 +1,874 @@
+/* =========================================================
+   GOWES — Rental Sepeda | UTS Rekayasa Web
+   Palet: oranye · hitam · putih
+   ========================================================= */
+
+:root {
+    --black: #0c0c0c;
+    --ink: #171717;
+    --orange: #ff5a00;
+    --white: #fafaf6;
+    --paper: #f1f0ea;
+    --muted: #7b7b74;
+
+    --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+    --font-body: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "Consolas", monospace;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--paper);
+    color: var(--black);
+    -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+    background: var(--orange);
+    color: var(--black);
+}
+
+/* ---------- Utilitas tipografi ---------- */
+.gw-display {
+    font-family: var(--font-display);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 0.9;
+}
+.gw-mono {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+.text-orange {
+    color: var(--orange) !important;
+}
+
+.gw-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.9rem;
+}
+.gw-h2 {
+    font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+}
+
+/* ---------- Tombol ---------- */
+.gw-btn {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 2px solid var(--black);
+    border-radius: 0;
+    padding: 0.72rem 1.3rem;
+    transition:
+        background 0.15s,
+        color 0.15s,
+        border-color 0.15s,
+        transform 0.15s;
+}
+.gw-btn:active {
+    transform: translateY(1px);
+}
+.gw-btn.btn-sm {
+    padding: 0.55rem 0.95rem;
+}
+
+.gw-btn-orange {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: var(--black);
+}
+.gw-btn-orange:hover {
+    background: var(--white);
+    border-color: var(--white);
+    color: var(--black);
+}
+
+.gw-btn-dark {
+    background: var(--black);
+    color: var(--white);
+}
+.gw-btn-dark:hover {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: var(--black);
+}
+.gw-btn-dark:disabled {
+    background: #3a3a3a;
+    border-color: #3a3a3a;
+    color: #9c9c95;
+    opacity: 1;
+}
+
+.gw-btn-line {
+    background: transparent;
+    color: var(--black);
+}
+.gw-btn-line:hover {
+    background: var(--black);
+    color: var(--white);
+}
+
+.gw-btn-line-light {
+    background: transparent;
+    border-color: var(--white);
+    color: var(--white);
+}
+.gw-btn-line-light:hover {
+    background: var(--white);
+    color: var(--black);
+}
+
+/* ---------- Navbar ---------- */
+.gw-nav {
+    background: var(--black);
+    border-bottom: 3px solid var(--orange);
+    padding: 0.8rem 0;
+}
+.gw-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.85rem;
+    line-height: 1;
+    letter-spacing: 0.03em;
+    color: var(--white);
+    text-decoration: none;
+}
+.gw-brand:hover {
+    color: var(--white);
+}
+.gw-brand-mark {
+    display: inline-block;
+    width: 0.85rem;
+    height: 0.85rem;
+    background: var(--orange);
+    transform: rotate(45deg);
+}
+.gw-brand small {
+    margin-left: 0.45rem;
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #9a9a93;
+}
+.gw-nav .nav-link {
+    position: relative;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #d9d9d3;
+}
+.gw-nav .nav-link:hover,
+.gw-nav .nav-link.active {
+    color: var(--orange);
+}
+.gw-nav .nav-link.active::after {
+    content: "";
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    bottom: 0.1rem;
+    height: 2px;
+    background: var(--orange);
+}
+.gw-nav .navbar-toggler {
+    border: 2px solid var(--orange);
+    border-radius: 0;
+}
+.gw-nav .navbar-toggler:focus {
+    box-shadow: none;
+}
+
+/* ---------- Hero ---------- */
+.gw-hero {
+    position: relative;
+    overflow: hidden;
+    background: var(--black);
+    color: var(--white);
+    padding-top: 5rem;
+}
+.gw-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    background-size: 56px 56px;
+}
+.gw-hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 42%;
+    height: 100%;
+    background: var(--orange);
+    clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
+}
+.gw-hero > .container,
+.gw-hero > .gw-strip {
+    position: relative;
+    z-index: 2;
+}
+
+.gw-hero-title {
+    font-size: clamp(3.6rem, 8.4vw, 7rem);
+    margin-bottom: 1.6rem;
+}
+.gw-hero-lead {
+    max-width: 30rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #c9c9c2;
+    margin-bottom: 2rem;
+}
+.gw-hero-frame {
+    background: var(--white);
+    border: 4px solid var(--black);
+    padding: 0.6rem 0.6rem 0;
+    transform: rotate(-3deg);
+    box-shadow: 12px 12px 0 var(--black);
+    color: var(--black);
+    transition: transform 0.25s;
+}
+.gw-hero-frame:hover {
+    transform: rotate(-1deg) translateY(-4px);
+}
+.gw-hero-frame img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+.gw-hero-caption {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 0.2rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+.gw-hero-caption strong {
+    font-weight: 500;
+    color: var(--orange);
+    background: var(--black);
+    padding: 0.25rem 0.55rem;
+}
+
+.gw-strip {
+    background: var(--black);
+    border-top: 1px solid #2c2c2c;
+    margin-top: 3rem;
+}
+.gw-strip-item {
+    padding: 1.5rem 1.2rem;
+    border-right: 1px solid #2c2c2c;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+.gw-strip-item:last-child {
+    border-right: 0;
+}
+.gw-strip-item strong {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 2.6rem;
+    line-height: 1;
+    color: var(--orange);
+}
+.gw-strip-item span {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #9a9a93;
+}
+
+@media (max-width: 991.98px) {
+    .gw-hero {
+        padding-top: 3.5rem;
+    }
+    .gw-hero::after {
+        display: none;
+    }
+    .gw-hero-frame {
+        box-shadow: 10px 10px 0 var(--orange);
+        max-width: 30rem;
+    }
+    .gw-strip-item {
+        border-bottom: 1px solid #2c2c2c;
+    }
+}
+
+/* ---------- Section ---------- */
+.gw-section {
+    padding: 5rem 0;
+}
+.gw-section-white {
+    background: var(--white);
+    border-top: 3px solid var(--black);
+    border-bottom: 3px solid var(--black);
+}
+
+/* ---------- Kartu sepeda ---------- */
+.gw-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 2px solid var(--black);
+    transition:
+        transform 0.18s,
+        box-shadow 0.18s;
+}
+.gw-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 7px 7px 0 var(--orange);
+}
+
+.gw-card-media {
+    position: relative;
+    display: block;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--ink);
+    border-bottom: 2px solid var(--black);
+}
+.gw-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.45s;
+}
+.gw-card:hover .gw-card-media img {
+    transform: scale(1.06);
+}
+
+.gw-status {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    padding: 0.3rem 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+.gw-status-static {
+    position: static;
+    display: inline-block;
+    font-size: 0.72rem;
+    padding: 0.4rem 0.8rem;
+}
+.gw-status.is-on {
+    background: var(--orange);
+    color: var(--black);
+}
+.gw-status.is-off {
+    background: var(--black);
+    color: var(--white);
+}
+
+.gw-card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1.1rem 1.2rem 1.2rem;
+}
+.gw-tag {
+    margin: 0 0 0.35rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+.gw-card-title {
+    margin: 0 0 0.85rem;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 2.1rem;
+    line-height: 0.95;
+    text-transform: uppercase;
+}
+.gw-specs {
+    display: flex;
+    gap: 1.6rem;
+    margin: 0 0 1.1rem;
+    padding: 0;
+    list-style: none;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+}
+.gw-specs span {
+    margin-right: 0.4rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.gw-card-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 0.6rem;
+    margin-top: auto;
+    padding-top: 0.9rem;
+    border-top: 1px dashed #c4c3bb;
+}
+.gw-price {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.7rem;
+    line-height: 1;
+}
+.gw-price small {
+    margin-left: 0.25rem;
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 0.64rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+}
+
+/* ---------- Langkah sewa ---------- */
+.gw-step {
+    border-top: 3px solid var(--black);
+    padding-top: 1rem;
+}
+.gw-step-num {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 5rem;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--black);
+    transition:
+        color 0.2s,
+        -webkit-text-stroke-color 0.2s;
+}
+.gw-step:hover .gw-step-num {
+    color: var(--orange);
+    -webkit-text-stroke-color: var(--orange);
+}
+.gw-step-title {
+    margin: 0.6rem 0 0.5rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+}
+.gw-step p {
+    color: #4a4a45;
+    max-width: 22rem;
+}
+
+/* ---------- CTA ---------- */
+.gw-cta {
+    background: var(--orange);
+    padding: 4rem 0;
+    border-bottom: 3px solid var(--black);
+}
+.gw-cta-title {
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    color: var(--black);
+}
+
+/* ---------- Header halaman ---------- */
+.gw-pagehead {
+    background: var(--black);
+    color: var(--white);
+    padding: 3.5rem 0 3rem;
+    border-bottom: 3px solid var(--orange);
+}
+.gw-pagehead-title {
+    font-size: clamp(3rem, 7vw, 5.5rem);
+}
+
+/* ---------- Filter ---------- */
+.gw-pill {
+    display: inline-block;
+    padding: 0.45rem 0.95rem;
+    border: 2px solid var(--black);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--black);
+    text-decoration: none;
+    transition:
+        background 0.15s,
+        color 0.15s;
+}
+.gw-pill:hover {
+    background: var(--black);
+    color: var(--white);
+}
+.gw-pill.active {
+    background: var(--orange);
+}
+
+.gw-input {
+    border: 2px solid var(--black);
+    border-right: 0;
+    border-radius: 0;
+    background: var(--white);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+}
+.gw-input:focus {
+    border-color: var(--black);
+    box-shadow: inset 0 -3px 0 var(--orange);
+}
+
+.gw-empty {
+    border: 2px dashed var(--black);
+    padding: 3rem 1.5rem;
+    text-align: center;
+    background: var(--white);
+}
+.gw-empty .gw-display {
+    font-size: 2.4rem;
+}
+
+/* ---------- Detail ---------- */
+.gw-crumbbar {
+    background: var(--white);
+    border-bottom: 2px solid var(--black);
+    padding: 0.9rem 0;
+}
+.gw-crumb {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+.gw-crumb a {
+    color: var(--black);
+    text-decoration: none;
+}
+.gw-crumb a:hover {
+    color: var(--orange);
+}
+.gw-crumb .breadcrumb-item.active {
+    color: var(--muted);
+}
+
+.gw-frame {
+    background: var(--white);
+    border: 3px solid var(--black);
+    padding: 0.7rem;
+    box-shadow: 12px 12px 0 var(--orange);
+}
+.gw-frame img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.gw-detail-title {
+    font-size: clamp(3.4rem, 7vw, 5.8rem);
+    margin-bottom: 0;
+}
+.gw-detail-price {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 2.6rem;
+    line-height: 1;
+}
+.gw-detail-price small {
+    margin-left: 0.4rem;
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+}
+
+.gw-table {
+    --bs-table-bg: transparent;
+    margin-bottom: 0;
+    border-top: 2px solid var(--black);
+}
+.gw-table th,
+.gw-table td {
+    padding: 0.85rem 0.25rem;
+    border-bottom: 1px solid #cfcec6;
+}
+.gw-table th {
+    width: 38%;
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+.gw-table td {
+    font-weight: 600;
+}
+
+/* ---------- Modal ---------- */
+.gw-modal .modal-content {
+    border: 3px solid var(--black);
+    border-radius: 0;
+    box-shadow: 10px 10px 0 var(--orange);
+}
+.gw-modal .modal-header {
+    background: var(--black);
+    color: var(--white);
+    border-radius: 0;
+    border-bottom: 3px solid var(--orange);
+}
+.gw-modal .modal-title {
+    font-size: 1.9rem;
+}
+.gw-modal .btn-close {
+    filter: invert(1);
+}
+
+/* ---------- Footer ---------- */
+.gw-footer {
+    background: var(--black);
+    color: var(--white);
+    padding: 4rem 0 1.6rem;
+    border-top: 3px solid var(--orange);
+}
+.gw-footer-text {
+    max-width: 26rem;
+    color: #a9a9a2;
+}
+.gw-id {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+}
+.gw-id li {
+    display: flex;
+    gap: 1rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid #2c2c2c;
+}
+.gw-id span {
+    width: 5.5rem;
+    flex-shrink: 0;
+    color: var(--orange);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.68rem;
+    padding-top: 0.1rem;
+}
+.gw-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 3rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid #2c2c2c;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7e7e77;
+}
+
+/* ---------- Animasi masuk ---------- */
+@keyframes gw-up {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+.gw-up {
+    animation: gw-up 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gw-up {
+        animation: none;
+    }
+    .gw-card,
+    .gw-card-media img,
+    .gw-hero-frame {
+        transition: none;
+    }
+}
+
+/* ---------- Running text sepeda (footer) ---------- */
+.gw-ticker {
+    overflow: hidden;
+    white-space: nowrap;
+    background: var(--black);
+    border-top: 3px solid var(--orange);
+    border-bottom: 1px solid #2c2c2c;
+}
+.gw-ticker + .gw-footer {
+    border-top: 0;
+}
+
+.gw-ticker-track {
+    display: flex;
+    width: max-content;
+    animation: gw-marquee 32s linear infinite;
+}
+.gw-ticker:hover .gw-ticker-track {
+    animation-play-state: paused;
+}
+
+.gw-ticker-group {
+    display: flex;
+    flex-shrink: 0;
+}
+
+.gw-ticker-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 1.05rem 0 1.05rem 2.2rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+}
+.gw-ticker-item strong {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.5rem;
+    line-height: 1;
+    letter-spacing: 0.02em;
+}
+.gw-ticker-item span {
+    color: #9a9a93;
+}
+.gw-ticker-item em {
+    font-style: normal;
+    color: var(--orange);
+}
+.gw-ticker-item:hover strong {
+    color: var(--orange);
+}
+
+.gw-ticker-sep {
+    display: inline-block;
+    width: 0.6rem;
+    height: 0.6rem;
+    margin-left: 1.3rem;
+    background: var(--orange);
+    transform: rotate(45deg);
+}
+
+@keyframes gw-marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gw-ticker {
+        overflow-x: auto;
+    }
+    .gw-ticker-track {
+        animation: none;
+    }
+}
+
+/* ---------- Hero slider ---------- */
+.gw-hero-slider {
+    max-width: 34rem;
+    margin-inline: auto;
+}
+.gw-hero-slider .carousel {
+    touch-action: pan-y;
+    user-select: none;
+    cursor: grab;
+}
+.gw-hero-slider .carousel:active {
+    cursor: grabbing;
+}
+
+.gw-slide-link {
+    display: block;
+    color: var(--black);
+    text-decoration: none;
+}
+.gw-slide-link img {
+    pointer-events: none;
+}
+
+.gw-hero-ctrls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2.2rem;
+}
+.gw-ctrl {
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    background: var(--white);
+    color: var(--black);
+    border: 2px solid var(--black);
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    transition:
+        background 0.15s,
+        transform 0.15s;
+}
+.gw-ctrl:hover {
+    background: var(--orange);
+}
+.gw-ctrl:active {
+    transform: translateY(1px);
+}
+
+.gw-ctrl-count {
+    padding: 0.7rem 1rem;
+    background: var(--black);
+    border: 2px solid var(--black);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    color: var(--white);
+}
+.gw-ctrl-count b {
+    font-weight: 500;
+    color: var(--orange);
+}

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Placeholder foto sepeda">
+  <rect width="800" height="600" fill="#161616"/>
+  <g stroke="#262626" stroke-width="1">
+    <path d="M0 100H800M0 200H800M0 300H800M0 400H800M0 500H800"/>
+    <path d="M100 0V600M200 0V600M300 0V600M400 0V600M500 0V600M600 0V600M700 0V600"/>
+  </g>
+  <g fill="none" stroke="#ff5a00" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="240" cy="380" r="95"/>
+    <circle cx="560" cy="380" r="95"/>
+    <path d="M240 380L390 380L350 250L240 380"/>
+    <path d="M350 250L500 250L390 380"/>
+    <path d="M500 250L560 380"/>
+    <path d="M500 250L515 212L548 212"/>
+    <path d="M325 232L378 232"/>
+  </g>
+  <g fill="#fafaf6"><circle cx="240" cy="380" r="8"/><circle cx="560" cy="380" r="8"/><circle cx="390" cy="380" r="9"/></g>
+  <text x="400" y="545" text-anchor="middle" font-family="monospace" font-size="20" letter-spacing="4" fill="#8a8a84">FOTO BELUM DIPASANG</text>
+</svg>
