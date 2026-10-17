@@ -49,9 +49,7 @@
 
                 <div class="d-flex flex-wrap gap-3 mt-4">
                     @if ($bike->available)
-                        <button type="button" class="btn gw-btn gw-btn-orange" data-bs-toggle="modal" data-bs-target="#modalSewa">
-                            Sewa sepeda ini
-                        </button>
+                        <a href="{{ route('rentals.create', $bike) }}" class="btn gw-btn gw-btn-orange">Sewa sepeda ini</a>
                     @else
                         <button type="button" class="btn gw-btn gw-btn-dark" disabled>Belum tersedia</button>
                     @endif

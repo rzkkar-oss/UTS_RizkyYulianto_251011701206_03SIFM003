@@ -1,0 +1,302 @@
+/* ---------- Flash message ---------- */
+.gw-flash {
+    padding: 0.85rem 0;
+    border-bottom: 3px solid var(--black);
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+.gw-flash.is-success {
+    background: var(--orange);
+    color: var(--black);
+}
+.gw-flash.is-error {
+    background: var(--black);
+    color: var(--white);
+    border-bottom-color: var(--orange);
+}
+
+.gw-formalert {
+    padding: 0.9rem 1.1rem;
+    border: 2px solid #c0201a;
+    background: #fff1ef;
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    letter-spacing: 0.06em;
+    color: #8f1610;
+}
+
+/* ---------- Form ---------- */
+.gw-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+.gw-field {
+    padding: 0.8rem 0.95rem;
+    border: 2px solid var(--black);
+    border-radius: 0;
+    background: var(--white);
+    font-weight: 500;
+}
+.gw-field:focus {
+    border-color: var(--black);
+    background: var(--white);
+    box-shadow: 4px 4px 0 var(--orange);
+}
+.gw-field[readonly] {
+    background: var(--paper);
+    color: var(--muted);
+    box-shadow: none;
+}
+.form-control.gw-field.is-invalid {
+    border-color: #c0201a;
+    background-image: none;
+}
+.gw-field::-webkit-outer-spin-button,
+.gw-field::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.gw-field[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.invalid-feedback {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: #c0201a;
+}
+
+.gw-stepper .gw-btn {
+    padding: 0.6rem 1.15rem;
+    font-size: 1rem;
+}
+.gw-stepper .gw-field {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.4rem;
+    padding: 0.35rem 0.5rem;
+}
+
+/* ---------- Pilihan pembayaran ---------- */
+.gw-pay-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+.gw-pay {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    height: 100%;
+    padding: 0.9rem 1rem;
+    border: 2px solid var(--black);
+    background: var(--white);
+    cursor: pointer;
+    transition:
+        box-shadow 0.15s,
+        background 0.15s,
+        color 0.15s;
+}
+.gw-pay strong {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.4rem;
+    line-height: 1;
+    text-transform: uppercase;
+}
+.gw-pay span {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+.gw-pay:hover {
+    box-shadow: 4px 4px 0 var(--orange);
+}
+.gw-pay-input:checked + .gw-pay {
+    background: var(--black);
+    color: var(--white);
+    box-shadow: 4px 4px 0 var(--orange);
+}
+.gw-pay-input:checked + .gw-pay span {
+    color: #b9b9b2;
+}
+.gw-pay-input:focus-visible + .gw-pay {
+    outline: 3px solid var(--orange);
+    outline-offset: 2px;
+}
+
+/* ---------- Total bayar ---------- */
+.gw-total {
+    padding: 1.4rem 1.6rem;
+    background: var(--black);
+    color: var(--white);
+    border: 3px solid var(--black);
+    box-shadow: 8px 8px 0 var(--orange);
+}
+.gw-total .gw-mono {
+    margin: 0 0 0.4rem;
+    color: #9a9a93;
+}
+.gw-total-amount {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2.6rem, 6vw, 3.6rem);
+    line-height: 1;
+    color: var(--orange);
+}
+.gw-total-calc {
+    margin: 0.6rem 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    color: #c9c9c2;
+}
+
+/* ---------- Struk ---------- */
+.gw-receipt {
+    max-width: 44rem;
+    margin: 0 auto;
+    background: var(--white);
+    border: 3px solid var(--black);
+    box-shadow: 12px 12px 0 var(--orange);
+}
+.gw-receipt-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.4rem 1.6rem;
+    background: var(--black);
+    color: var(--white);
+}
+.gw-receipt-sub {
+    color: #9a9a93;
+}
+.gw-receipt-code {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.9rem, 5vw, 2.6rem);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    color: var(--orange);
+}
+.gw-receipt-body {
+    padding: 1.6rem;
+}
+.gw-receipt-thumb {
+    width: 6.5rem;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border: 2px solid var(--black);
+}
+.gw-receipt-bike {
+    font-size: 2.2rem;
+}
+.gw-receipt-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    border-top: 3px solid var(--black);
+}
+.gw-receipt-total strong {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 2.8rem;
+    line-height: 1;
+}
+.gw-note {
+    margin-top: 1.4rem;
+    padding: 1rem 1.1rem;
+    border: 2px dashed var(--black);
+    font-size: 0.92rem;
+}
+
+/* ---------- Badge status ---------- */
+.gw-badge {
+    display: inline-block;
+    padding: 0.3rem 0.65rem;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+.gw-badge.is-aktif {
+    background: var(--orange);
+    color: var(--black);
+}
+.gw-badge.is-selesai {
+    background: var(--white);
+    color: var(--black);
+    border: 1px solid var(--black);
+}
+.gw-receipt-head .gw-badge.is-selesai {
+    border-color: var(--white);
+}
+
+/* ---------- Tabel riwayat ---------- */
+.gw-list {
+    --bs-table-bg: var(--white);
+    --bs-table-hover-bg: #fff0e5;
+    margin-bottom: 0;
+    border: 2px solid var(--black);
+}
+.gw-list thead th {
+    padding: 0.9rem;
+    background: var(--black);
+    border: 0;
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white);
+    white-space: nowrap;
+}
+.gw-list td {
+    padding: 0.9rem;
+    border-bottom: 1px solid #d6d5cd;
+}
+.gw-code {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* ---------- Cetak ---------- */
+@media print {
+    .gw-nav,
+    .gw-ticker,
+    .gw-footer,
+    .gw-noprint {
+        display: none !important;
+    }
+    body {
+        background: #fff;
+    }
+    .gw-section {
+        padding: 0;
+    }
+    .gw-receipt {
+        box-shadow: none;
+        max-width: 100%;
+    }
+    * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
