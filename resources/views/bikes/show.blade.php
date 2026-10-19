@@ -49,7 +49,7 @@
 
                 <div class="d-flex flex-wrap gap-3 mt-4">
                     @if ($bike->available)
-                        <a href="{{ route('rentals.create', $bike) }}" class="btn gw-btn gw-btn-orange">Sewa sepeda ini</a>
+                        <button type="button" class="btn gw-btn gw-btn-orange" data-bs-toggle="modal" data-bs-target="#modalSewa">Sewa sepeda ini</button>
                     @else
                         <button type="button" class="btn gw-btn gw-btn-dark" disabled>Belum tersedia</button>
                     @endif
@@ -98,3 +98,22 @@
 </div>
 
 @endsection
+{{-- Modal informasi pemesanan (tampilan saja, tidak menyimpan data) --}}
+<div class="modal fade gw-modal" id="modalSewa" tabindex="-1" aria-labelledby="modalSewaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title gw-display" id="modalSewaLabel">Pesan {{ $bike->brand }}</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+            </div>
+            <div class="modal-body">
+                <p>Unit <strong>{{ $bike->code }}</strong> — {{ $bike->type }}, {{ $bike->price_label }} / hari.</p>
+                <p class="mb-0">Hubungi kami untuk konfirmasi pemesanan:</p>
+                <p class="gw-mono mt-2 mb-0">WhatsApp · 0812-0000-0000</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn gw-btn gw-btn-dark btn-sm" data-bs-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>

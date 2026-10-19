@@ -12,12 +12,10 @@
     {{-- Bootstrap dari folder lokal public/Bootstrap --}}
     <link rel="stylesheet" href="{{ asset('Bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/rental.css') }}">
 </head>
 <body>
 
     @include('partials.navbar')
-    @include('partials.flash')
 
     <main>
         @yield('content')

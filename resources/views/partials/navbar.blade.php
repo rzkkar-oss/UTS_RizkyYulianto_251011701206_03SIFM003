@@ -18,9 +18,6 @@
                     <a class="nav-link {{ request()->routeIs('bikes.*') ? 'active' : '' }}" href="{{ route('bikes.index') }}">Daftar Sepeda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('rentals.index', 'rentals.show') ? 'active' : '' }}" href="{{ route('rentals.index') }}">Riwayat Sewa</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="{{ route('home') }}#cara-sewa">Cara Sewa</a>
                 </li>
                 <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
